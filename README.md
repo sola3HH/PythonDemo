@@ -1,2 +1,2 @@
 # PythonDemo
-基于matplotlib的数据可视化
+基于Python的数据可视化demo
