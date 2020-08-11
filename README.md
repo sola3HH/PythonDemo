@@ -1,5 +1,5 @@
 # PythonDemo
-一些使用的python功能demo
+一些实用的python功能demo
 - 基于matplotlib, Pygal的数据可视化
 - CSV文件数据处理
 - JSON文件数据处理
