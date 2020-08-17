@@ -31,6 +31,7 @@ def upload():
             f = request.files['file']
             upload_path = os.path.join(app.config['FILE_PATH'], f.filename)
             f.save(upload_path)
+            app.logger.info('File saved at: {}'.format(upload_path))
         except Exception as e:
             response['status'] = 'failed'
             response['msg'] = str(e)
@@ -39,6 +40,7 @@ def upload():
         else:
             response['status'] = 'success'
             response['msg'] = f.filename
+            app.logger.info('Success with response: {}'.format(json.dumps(response)))
         return jsonify(response)
 
 
@@ -52,6 +54,7 @@ def download():
         response = {}
         try:
             filename = request.form.get('filename')
+            app.logger.info("File downloaded successfully: {}".format(filename))
             return send_from_directory(app.config['FILE_PATH'], filename=filename, as_attachment=True)
         except Exception as e:
             response['status'] = 'failed'

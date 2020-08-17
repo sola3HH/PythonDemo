@@ -5,3 +5,8 @@ Traceback (most recent call last):
   File "D:\python\lib\site-packages\flask\helpers.py", line 767, in send_from_directory
     raise NotFound()
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-08-17 13:42:18,155 - INFO - flask_run.py - download - 58 - File downloaded successfully: 购物清单.txt
+2020-08-17 13:44:05,931 - INFO - flask_run.py - download - 57 - File downloaded successfully: 购物清单.txt
+2020-08-17 13:44:18,893 - INFO - flask_run.py - download - 57 - File downloaded successfully: 购物清单.txt
+2020-08-17 13:45:06,032 - INFO - flask_run.py - upload - 34 - File saved at: D:\Python project\PythonDemo\Flask Demo\target\课表.xlsx
+2020-08-17 13:45:06,032 - INFO - flask_run.py - upload - 43 - Success with response: {"status": "success", "msg": "\u8bfe\u8868.xlsx"}
