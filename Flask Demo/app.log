@@ -1,0 +1,7 @@
+2020-08-17 11:27:09,185 - ERROR - flask_run.py - download - 59 - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\Python project\PythonDemo\Flask Demo\flask_run.py", line 55, in download
+    return send_from_directory(app.config['FILE_PATH'], filename=filename, as_attachment=True)
+  File "D:\python\lib\site-packages\flask\helpers.py", line 767, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.

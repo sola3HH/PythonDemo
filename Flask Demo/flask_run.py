@@ -1,12 +1,22 @@
-import os
-from flask import Flask, request, send_from_directory, render_template, url_for, redirect,jsonify
 import json
+import logging
+import os
+
+from flask import Flask, request, send_from_directory, render_template, jsonify
 
 app = Flask(__name__)
 
 app.config['FILE_PATH'] = os.path.join(app.root_path, 'target')
 app.config['JSON_AS_ASCII'] = False
 app.config['DEBUG'] = True
+
+# 日志系统配置
+handler = logging.FileHandler('app.log', encoding='UTF-8')
+# 设置日志文件，和字符编码
+logging_format = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+handler.setFormatter(logging_format)
+app.logger.addHandler(handler)
 
 
 # 将文件传送至target目录下
@@ -24,6 +34,7 @@ def upload():
         except Exception as e:
             response['status'] = 'failed'
             response['msg'] = str(e)
+            app.logger.exception(e)
             return json.dumps(response)
         else:
             response['status'] = 'success'
@@ -41,14 +52,11 @@ def download():
         response = {}
         try:
             filename = request.form.get('filename')
-            if not os.path.isfile(os.path.join(app.config['FILE_PATH'], filename)):
-                response['status'] = 'failed'
-                response['msg'] = 'No such file'
-                return json.dumps(response)
             return send_from_directory(app.config['FILE_PATH'], filename=filename, as_attachment=True)
         except Exception as e:
             response['status'] = 'failed'
             response['msg'] = str(e)
+            app.logger.exception(e)
             return json.dumps(response)
 
 
