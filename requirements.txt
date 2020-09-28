@@ -1,0 +1,5 @@
+Cython==0.29.21
+requests==2.23.0
+Flask==1.1.2
+matplotlib==3.3.2
+pygal==2.4.0
